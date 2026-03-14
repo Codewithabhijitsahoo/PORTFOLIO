@@ -97,7 +97,7 @@ export default function HeroSection() {
             <Github className="w-5 h-5" />
           </a>
           <a
-            href="https://linkedin.com/in/abhijitsahoo"
+            href="https://www.linkedin.com/in/abhijit-sahoo-3a2872294"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white hover:bg-indigo-500/20 hover:border-indigo-400/30 transition-all duration-300"
