@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import {
   GraduationCap,
@@ -18,22 +18,22 @@ export default function EducationSection() {
     message: "",
   });
 
-  const [status, setStatus] = useState("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("submitting");
 
     try {
       await emailjs.send(
-        "service_9u9srbl", // replace with your service ID
-        "template_48dc926", // replace with your template ID
+        "service_9u9srbl",
+        "template_48dc926",
         {
           user_name: formData.name,
           user_email: formData.email,
           message: formData.message,
         },
-        "BW1Tggan4KoAAuNLO" // replace with your public key
+        "BW1Tggan4KoAAuNLO"
       );
 
       setStatus("success");
@@ -50,7 +50,7 @@ export default function EducationSection() {
 
   return (
     <>
-      {/* ================= EDUCATION SECTION ================= */}
+      {/* EDUCATION SECTION */}
 
       <section
         id="education"
@@ -145,7 +145,7 @@ export default function EducationSection() {
         </div>
       </section>
 
-      {/* ================= CONTACT SECTION ================= */}
+      {/* CONTACT SECTION */}
 
       <section
         id="contact"
@@ -209,7 +209,8 @@ export default function EducationSection() {
               disabled={status === "submitting"}
               className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-violet-500 text-white"
             >
-              <Send className="w-5 h-5" />
+              <Send className={`w-5 h-5 ${status === "submitting" ? "animate-pulse" : ""}`} />
+
               {status === "submitting"
                 ? "Sending..."
                 : status === "success"
@@ -230,7 +231,7 @@ export default function EducationSection() {
         </div>
       </section>
 
-      {/* ================= FOOTER ================= */}
+      {/* FOOTER */}
 
       <footer className="py-8 bg-white dark:bg-slate-900 border-t">
 
