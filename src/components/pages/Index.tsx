@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import SkillsSection from "@/components/SkillsSection";
 import ProjectsSection from "@/components/ProjectsSection";
+import BlogSection from "@/components/BlogSection";
 import EducationSection from "@/components/EducationSection";
 import { useDarkMode } from "@/hooks/useDarkMode";
 
@@ -19,6 +20,7 @@ export default function PortfolioPage() {
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
+      <BlogSection />
       <EducationSection />
     </div>
   );
