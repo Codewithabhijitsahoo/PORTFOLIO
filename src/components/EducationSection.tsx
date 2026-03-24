@@ -124,7 +124,7 @@ export default function EducationSection() {
                 </div>
 
                 <h3 className="text-xl font-bold dark:text-white">
-                  Higher Secondary (12th)
+                  Higher Secondary Education
                 </h3>
 
                 <p className="text-slate-600 dark:text-slate-400">
