@@ -1,78 +1,58 @@
-<<<<<<< HEAD
-# React + TypeScript + Vite
+# Modern Data Science & ML Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A premium, interactive portfolio showcase built with React 19, Vite, and Framer Motion. This project features a high-end design with glassmorphism, dynamic animations, and SEO optimization.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[View Portfolio](https://codewithabhijitsahoo.github.io/portfolio/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- **Dynamic Hero Section**: Interactive typewriter effect highlighting multiple roles (Data Scientist, ML Engineer, etc.) and floating particle animations.
+- **Project Mockups**: Custom-generated AI mockups for each project, replacing standard icons with high-fidelity visuals.
+- **Infinite Skill Scroller**: A smooth, infinite horizontal scroll of technical skills and tools.
+- **Advanced Navigation**: Floating glassmorphism navbar with active section tracking and smooth scroll logic.
+- **Fully Responsive**: Optimized for Mobile, Tablet, and Desktop with a mobile-first approach.
+- **SEO Optimized**: Complete Open Graph and Twitter meta tags for premium social sharing previews.
+- **Dark Mode First**: Sleek dark-themed aesthetic using a deep slate and indigo color palette.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
+- **Build Tool**: [Vite 6](https://vitejs.dev/)
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Typography**: Geist Variable Font
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Installation & Setup
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/Codewithabhijitsahoo/PORTFOLIO.git
+   cd PORTFOLIO
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. **Run in development mode**:
+   ```bash
+   npm run dev
+   ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4. **Build for production**:
+   ```bash
+   npm run build
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 📸 Screenshots
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-=======
-# PORTFOLIO
-portfolio
->>>>>>> b2348954aae4b9e5780d304a622e8203127ccb7b
+| Hero & Intro | Featured Projects |
+| :---: | :---: |
+| ![Hero Section](/public/images/hero_bg_new_1775035386929.png) | ![Projects](/public/images/movie_rec_mockup_1775035285833.png) |
+
+---
+
+Developed with ❤️ by [Abhijit Sahoo](https://github.com/Codewithabhijitsahoo)
