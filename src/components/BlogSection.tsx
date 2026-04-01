@@ -5,7 +5,6 @@ interface Blog {
   title: string;
   description: string;
   category: string;
-  readTime: string;
   date: string;
   link: string;
   image: string;
@@ -18,10 +17,19 @@ const blogs: Blog[] = [
     title: "Data Analytics: A Beginner-Friendly Guide with Real-World Use Cases",
     description: "A beginner-friendly guide explaining data analytics, its importance, types, and real-world applications.",
     category: "Data Analytics",
-    readTime: "8 min read",
     date: "Mar 15, 2024",
     link: "https://medium.com/@abhijitsahoo052/data-analytics-a-beginner-friendly-guide-with-real-world-use-cases-4275c7eb2ccc",
     image: "/blog-analytics.png",
+    isFeatured: true,
+  },
+  {
+    id: 2,
+    title: "🚀 MCP Server in AI: The Hidden Power Behind Smart Applications",
+    description: "AI uses MCP Servers as 'hands' to fetch real-time data, remember information, and interact with various apps and services.",
+    category: "AI & Technology",
+    date: "Apr 01, 2026",
+    link: "https://medium.com/@abhijitsahoo052/mcp-server-in-ai-the-hidden-power-behind-smart-applications-2c2e1c632a77",
+    image: "/blog-mcp.png",
     isFeatured: true,
   },
 ];
@@ -47,13 +55,13 @@ export default function BlogSection() {
           </p>
         </div>
 
-        {/* Blog Grid - Centered single card */}
-        <div className="flex justify-center">
+        {/* Blog Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {blogs.map((blog, index) => (
             <div
               key={blog.id}
               className="
-                group relative max-w-4xl flex flex-col rounded-3xl overflow-hidden
+                group relative flex flex-col rounded-3xl overflow-hidden
                 bg-white/40 dark:bg-slate-800/40 backdrop-blur-md border border-slate-200/50 dark:border-slate-700/50
                 hover:shadow-[0_20px_50px_rgba(79,70,229,0.15)] hover:-translate-y-2 transition-all duration-500
                 animate-fade-in-up
@@ -85,17 +93,13 @@ export default function BlogSection() {
                     <Calendar className="w-4 h-4 text-indigo-500" />
                     {blog.date}
                   </div>
-                  <div className="flex items-center gap-1.5 font-bold">
-                    <Clock className="w-4 h-4 text-violet-500" />
-                    {blog.readTime}
-                  </div>
                 </div>
 
-                <h3 className="text-2xl md:text-4xl font-bold text-slate-900 dark:text-white mb-6 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 leading-tight">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white mb-4 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors duration-300 leading-tight">
                   {blog.title}
                 </h3>
 
-                <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg leading-relaxed mb-10">
+                <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base leading-relaxed mb-6">
                   {blog.description}
                 </p>
 

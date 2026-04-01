@@ -1,11 +1,28 @@
 import { ArrowDown, Github, Linkedin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
-const HERO_BG = "https://mgx-backend-cdn.metadl.com/generate/images/699307/2026-03-07/6e82aed0-3358-4f92-a6c1-df18f51deb6b.png";
+const HERO_BG = "/images/hero_bg_new_1775035386929.png";
+const TITLES = [
+  "Data Science Enthusiast",
+  "Machine Learning Engineer",
+  "Deep Learning Specialist",
+  "LLM Developer",
+];
 
 /**
  * Hero section with animated intro, name, title, and call-to-action.
  */
 export default function HeroSection() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % TITLES.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const el = document.querySelector(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -14,29 +31,40 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950"
     >
-      {/* Background Image */}
-      <div
+      {/* Background Image with Parallax effect */}
+      <motion.div
+        initial={{ scale: 1.1, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${HERO_BG})` }}
       />
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-slate-900/80 to-slate-900/95 dark:from-slate-900/80 dark:via-slate-900/90 dark:to-slate-900" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/80 to-slate-950 dark:from-slate-950/80 dark:via-slate-950/90 dark:to-slate-950" />
 
       {/* Animated floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(6)].map((_, i) => (
-          <div
+          <motion.div
             key={i}
-            className="absolute rounded-full bg-indigo-500/20 animate-pulse"
+            className="absolute rounded-full bg-indigo-500/20"
+            animate={{
+              y: [0, -20, 0],
+              opacity: [0.2, 0.4, 0.2],
+            }}
+            transition={{
+              duration: 3 + i,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: i * 0.5,
+            }}
             style={{
               width: `${20 + i * 15}px`,
               height: `${20 + i * 15}px`,
               top: `${10 + i * 15}%`,
               left: `${5 + i * 16}%`,
-              animationDelay: `${i * 0.5}s`,
-              animationDuration: `${3 + i}s`,
             }}
           />
         ))}
@@ -45,32 +73,63 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
         {/* Greeting badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 backdrop-blur-sm mb-8 animate-fade-in">
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 backdrop-blur-sm mb-8"
+        >
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
           <span className="text-sm text-indigo-300 font-medium">
             Open to opportunities
           </span>
-        </div>
+        </motion.div>
 
-        <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 animate-fade-in-up">
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4"
+        >
           Hi, I'm{" "}
           <span className="bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
             Abhijit Sahoo
           </span>
-        </h1>
+        </motion.h1>
 
-        <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-indigo-300 mb-6 animate-fade-in-up animation-delay-200">
-          Data Science & Machine Learning Enthusiast
-        </p>
+        <div className="h-10 sm:h-12 md:h-16 mb-6">
+          <AnimatePresence mode="wait">
+            <motion.p
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5 }}
+              className="text-xl sm:text-2xl md:text-3xl font-semibold text-indigo-300"
+            >
+              {TITLES[index]}
+            </motion.p>
+          </AnimatePresence>
+        </div>
 
-        <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up animation-delay-400">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed"
+        >
           I am a passionate data science student interested in Machine Learning,
           Deep Learning, and Large Language Models. I enjoy building intelligent
           systems and data-driven applications.
-        </p>
+        </motion.p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 animate-fade-in-up animation-delay-600">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+        >
           <button
             onClick={() => scrollToSection("#projects")}
             className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 text-white font-semibold hover:shadow-lg hover:shadow-indigo-500/25 hover:scale-105 transition-all duration-300"
@@ -83,10 +142,15 @@ export default function HeroSection() {
           >
             Get In Touch
           </button>
-        </div>
+        </motion.div>
 
         {/* Social Links */}
-        <div className="flex items-center justify-center gap-4 animate-fade-in-up animation-delay-800">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex items-center justify-center gap-4"
+        >
           <a
             href="https://github.com/Codewithabhijitsahoo"
             target="_blank"
@@ -105,19 +169,26 @@ export default function HeroSection() {
           >
             <Linkedin className="w-5 h-5" />
           </a>
-        </div>
+        </motion.div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <button
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <motion.button
+            animate={{ y: [0, 10, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
             onClick={() => scrollToSection("#about")}
             className="text-slate-400 hover:text-indigo-400 transition-colors"
             aria-label="Scroll down"
           >
             <ArrowDown className="w-6 h-6" />
-          </button>
-        </div>
+          </motion.button>
+        </motion.div>
       </div>
     </section>
   );
-}
+}
