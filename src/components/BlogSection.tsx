@@ -1,4 +1,4 @@
-import { Calendar, Clock, ArrowRight, BookOpen } from "lucide-react";
+import { Calendar, ArrowRight, BookOpen } from "lucide-react";
 
 interface Blog {
   id: number;
