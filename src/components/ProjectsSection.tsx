@@ -1,4 +1,4 @@
-import { ExternalLink, Github, Film, Network, BrainCircuit, Clapperboard } from "lucide-react";
+import { ExternalLink, Github, Film, Network, BrainCircuit, Clapperboard, Code2, Bot } from "lucide-react";
 import { motion } from "framer-motion";
 
 const projects = [
@@ -46,6 +46,28 @@ const projects = [
     gradient: "from-amber-500 to-orange-500",
     image: "/images/movie_rec_mockup_1775035285833.png",
   },
+  {
+    title: "The ultimate DSA practice hub",
+    description:
+      "A comprehensive platform for mastering DSA, featuring automated LeetCode metadata retrieval, a personal notebook, and real-time analytics.",
+    tags: ["React", "TypeScript", "Supabase", "Tailwind CSS"],
+    icon: Code2,
+    github: "https://github.com/Codewithabhijitsahoo/DSA_VAULT",
+    demo: "https://github.com/Codewithabhijitsahoo/DSA_VAULT",
+    gradient: "from-emerald-500 to-teal-500",
+    image: "/images/dsa_practice_hub.png",
+  },
+  {
+    title: "RAG-Based Medical Assistant",
+    description:
+      "A medical AI assistant utilizing Retrieval-Augmented Generation (RAG) with a Python Flask backend for enhanced medical queries and information retrieval.",
+    tags: ["Python", "Flask", "LangChain", "Pinecone", "RAG", "LLM"],
+    icon: Bot,
+    github: "https://github.com/Codewithabhijitsahoo/RAG-BASED-MEDICAL-ASSISTANT",
+    demo: "https://github.com/Codewithabhijitsahoo/RAG-BASED-MEDICAL-ASSISTANT",
+    gradient: "from-rose-500 to-red-500",
+    image: "/images/rag_medical_assistant.png",
+  },
 ];
 
 /**
@@ -55,7 +77,7 @@ export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="relative py-20 md:py-28 bg-slate-50 dark:bg-slate-900/50 overflow-hidden"
+      className="relative py-20 md:py-28 bg-slate-50 dark:bg-transparent overflow-hidden"
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

@@ -6,6 +6,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import BlogSection from "@/components/BlogSection";
 import EducationSection from "@/components/EducationSection";
 import { useDarkMode } from "@/hooks/useDarkMode";
+import { InteractiveBackground } from "@/components/ui/InteractiveBackground";
 
 /**
  * Main portfolio page composing all sections with smooth scrolling.
@@ -14,7 +15,8 @@ export default function PortfolioPage() {
   const { isDark, toggleDark } = useDarkMode();
 
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-slate-950 transition-colors duration-300 relative">
+      <InteractiveBackground />
       <Navbar isDark={isDark} toggleDark={toggleDark} />
       <HeroSection />
       <AboutSection />

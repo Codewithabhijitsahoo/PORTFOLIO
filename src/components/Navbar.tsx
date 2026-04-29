@@ -74,7 +74,7 @@ export default function Navbar({ isDark, toggleDark }: NavbarProps) {
     <nav
       className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 w-[95%] max-w-5xl rounded-2xl ${
         scrolled
-          ? "bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl shadow-2xl border border-white/20 dark:border-slate-800/50 py-2"
+          ? "bg-transparent py-2"
           : "bg-transparent py-4"
       }`}
     >
@@ -94,7 +94,7 @@ export default function Navbar({ isDark, toggleDark }: NavbarProps) {
           </button>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-1 bg-slate-200/30 dark:bg-slate-800/30 p-1 rounded-xl backdrop-blur-sm">
+          <div className="hidden md:flex items-center gap-1 p-1 rounded-xl">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
